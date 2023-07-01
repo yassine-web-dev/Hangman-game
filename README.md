@@ -1,2 +1,2 @@
 # Hangman-game
-This is a Hangman Game i practiced Js On
+This is a Hangman Game
