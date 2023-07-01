@@ -24,7 +24,6 @@ lettersArray.forEach(letter => {
 
     // Append Span To The Letters Container
     lettersContainer.appendChild(span);
-
 });
 
 // Object Of Words + Categories
@@ -52,7 +51,6 @@ let randomValueNumber = Math.floor(Math.random() * randomPropValue.length);
   
 // The Chosen Word
 let randomValueValue = randomPropValue[randomValueNumber];
-console.log(randomValueValue)
   
 // Set Category Info
 document.querySelector(".game-info .category span").innerHTML = randomPropName;
@@ -74,12 +72,10 @@ lettersAndSpace.forEach(letter => {
 
         // Add Class To The Span
         emptySpan.className = 'with-space';
-
     }
 
     // Append Span To The Letters Guess Container
     lettersGuessContainer.appendChild(emptySpan);
-
 });
 
 // Select Guess Spans
@@ -129,13 +125,13 @@ document.addEventListener("click", (e) => {
                         let filledSpans = Array.from(guessSpans).filter(item => item.innerHTML !== '');
 
                         if (filledSpans.length === lettersAndSpace.length) {
+
                             for (let span of filledSpans) {
 
                                 guessedWord += span.innerHTML;
                             }
                         }
                     }
-
                 });
             }
         });
@@ -161,7 +157,6 @@ document.addEventListener("click", (e) => {
                 lettersContainer.classList.add("finished");
 
                 document.getElementById('loss').play();
-
             }
 
             // Get Number Of Wrong Attempts
@@ -171,7 +166,6 @@ document.addEventListener("click", (e) => {
 
             // Play Success Sound
             document.getElementById("success").play();
-            
         }
 
         // Check If The player Won
@@ -232,27 +226,3 @@ function winTheGame() {
     // Append To The Body
     document.body.appendChild(div);
 }
-
-
-// fetch('https://edamam-food-and-grocery-database.p.rapidapi.com/api/food-database/v2/parser?health%5B0%5D=alcohol-free&category%5B0%5D=generic-foods&nutrition-type=cooking')
-//     .then(response => response.json())
-//     .then(data => {
-//         console.log(data)
-//     })
-
-const data = null;
-
-const xhr = new XMLHttpRequest();
-xhr.withCredentials = true;
-
-xhr.addEventListener('readystatechange', function () {
-	if (this.readyState === this.DONE) {
-		console.log(this.responseText);
-	}
-});
-
-xhr.open('GET', 'https://edamam-food-and-grocery-database.p.rapidapi.com/api/food-database/v2/parser?health%5B0%5D=alcohol-free&category%5B0%5D=generic-foods&nutrition-type=cooking');
-xhr.setRequestHeader('X-RapidAPI-Key', 'e27942c05emsh6dea18982d8a790p12a71cjsn9c30f1a2c230');
-xhr.setRequestHeader('X-RapidAPI-Host', 'edamam-food-and-grocery-database.p.rapidapi.com');
-
-xhr.send(data);
